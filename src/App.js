@@ -4,6 +4,7 @@ import Layout from "./components/containers";
 import {Route, Routes} from "react-router-dom";
 import RegisterPage from "./components/auth/register";
 import NotFoundPage from "./components/pages/404";
+import PizzaCreatePage from "./components/pizza/create";
 
 const App = () => {
 
@@ -13,6 +14,10 @@ const App = () => {
                 <Route path="/" element={<Layout />}>
                     <Route index element={<HomePage />} />
                     <Route path={"register"} element={<RegisterPage />} />
+
+                    <Route path={"pizza"} >
+                        <Route path={"create"} element={<PizzaCreatePage />} />
+                    </Route>
 
                     <Route path={"*"} element={<NotFoundPage/>} />
                 </Route>

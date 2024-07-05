@@ -1,0 +1,112 @@
+/* PizzaForm.css */
+
+.pizza-form {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+}
+
+.pizza-form label {
+    display: block;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+.pizza-form input[type="text"],
+.pizza-form input[type="number"],
+.pizza-form textarea {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+.pizza-form button[type="submit"] {
+    background-color: #4caf50;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.pizza-form button[type="submit"]:hover {
+    background-color: #45a049;
+}
+
+.pizza-form .error-message {
+    color: #f44336;
+    font-size: 0.8rem;
+    margin-top: 5px;
+}
+
+/* PhotoInput styles */
+.photo-input {
+    margin-bottom: 20px;
+}
+
+.photo-input label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.photo-input .preview-container {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.photo-input .preview-item {
+    width: 100px;
+    height: 100px;
+    margin-right: 10px;
+    margin-bottom: 10px;
+    position: relative;
+}
+
+.photo-input .preview-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 4px;
+}
+
+.photo-input .preview-item .remove-button {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    background-color: rgba(255, 255, 255, 0.8);
+    border: none;
+    padding: 3px;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.photo-input .preview-item .remove-button:hover {
+    background-color: rgba(255, 255, 255, 0.5);
+}
+
+/* TextArea styles */
+.text-area {
+    margin-bottom: 20px;
+}
+
+.text-area label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.text-area textarea {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    resize: vertical;
+}

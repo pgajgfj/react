@@ -1,0 +1,33 @@
+/* src/components/common/input/PhotoInput.css */
+.photo-input .dropzone {
+    border: 2px dashed #ccc;
+    padding: 20px;
+    text-align: center;
+    cursor: pointer;
+    margin-bottom: 10px;
+}
+
+.photo-preview-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.photo-preview {
+    position: relative;
+}
+
+.photo-preview img {
+    max-width: 100px;
+    max-height: 100px;
+}
+
+.photo-preview button {
+    position: absolute;
+    top: 0;
+    right: 0;
+    background: red;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
