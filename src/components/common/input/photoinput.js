@@ -1,4 +1,4 @@
-// src/components/common/input/PhotoInput.js
+
 import React, { useCallback } from 'react';
 import { useDropzone } from 'react-dropzone';
 import { sortableContainer, sortableElement } from 'react-sortable-hoc';

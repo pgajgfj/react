@@ -20,7 +20,7 @@ const HomePage = () => {
     ]);
 
     const handlerDelete = (id) => {
-        //console.log("Delete item", id);
+
         setList(list.filter(x => x.id !== id));
     }
 

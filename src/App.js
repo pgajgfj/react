@@ -6,6 +6,7 @@ import RegisterPage from "./components/auth/register";
 import NotFoundPage from "./components/pages/404";
 import PizzaCreatePage from "./components/pizza/create";
 
+
 const App = () => {
 
     return (
