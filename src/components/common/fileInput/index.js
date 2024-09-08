@@ -2,7 +2,7 @@ import userImage from "../../../assets/images/user.jpg";
 import classNames from "classnames";
 
 const FileInput = ({label, field, value, error, onChange}) => {
-    const img = value == null ? userImage : URL.createObjectURL(value);
+    const img = value == null ? userImage : value;
     console.log("error", error);
     return (
         <>

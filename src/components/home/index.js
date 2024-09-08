@@ -1,4 +1,5 @@
-import {useState} from "react";
+import {useContext, useState} from "react";
+import {AuthContext} from "../../authContext";
 
 const HomePage = () => {
 
@@ -19,8 +20,10 @@ const HomePage = () => {
         },
     ]);
 
-    const handlerDelete = (id) => {
+    const {login} = useContext(AuthContext);
 
+    const handlerDelete = (id) => {
+        //console.log("Delete item", id);
         setList(list.filter(x => x.id !== id));
     }
 
@@ -46,6 +49,10 @@ const HomePage = () => {
     return (
         <>
             <h1 className={"text-center"}>Користувачів</h1>
+            <button className={"btn btn-dark"}
+                onClick={() => { login({name: "Іван Васильович"}) }}>
+                Вхід на сайт
+            </button>
             <table className="table">
                 <thead>
                 <tr>

@@ -3,11 +3,12 @@ import {useState} from "react";
 import FileInput from "../../common/fileInput";
 import * as yup from "yup";
 import {useFormik} from "formik";
+import ImageCropperModal from "../../common/imageCropperModal";
 
 const RegisterPage = () => {
 
     const initValue = {
-        firstName: "",
+        firstName: "Вова",
         lastName: "",
         phone: "",
         image: null
@@ -21,12 +22,7 @@ const RegisterPage = () => {
         phone: yup.string()
             .required("Вкажіть телефон"),
         image: yup.mixed()
-            .required('Картинка є обов\'язковою')
-            .test(
-                'fileType',
-                'Неправильний формат файлу',
-                value => value && ['image/jpeg', 'image/png', 'image/webp'].includes(value?.type)
-            ),
+            .required('Картинка є обов\'язковою'),
     });
 
     const handleFormikSubmit = (values) => {
@@ -35,7 +31,7 @@ const RegisterPage = () => {
     }
 
     const formik = useFormik({
-        initialValues: initValue,
+       initialValues: initValue,
         onSubmit: handleFormikSubmit,
         validationSchema: registerSchema
     });
@@ -47,14 +43,26 @@ const RegisterPage = () => {
         console.log("onChange", e.target.files);
         const file = e.target.files[0];
         if (file) {
-            setFieldValue(e.target.name, file);
-
+            const imgUrl = URL.createObjectURL(file);
+            setImageForCropping(imgUrl);
+            setShowModal(true);
         }
         else {
             setFieldValue(e.target.name, null);
-
+            //setData({...data, [e.target.name]: null});
+            //alert("Оберіть фото");
         }
     }
+
+    const [showModal, setShowModal] = useState(false);
+    const [imageForCropping, setImageForCropping] = useState(null);
+
+    const handleCrop = (croppedImage) => {
+        //const blob = dataURItoBlob(croppedImage);
+        //const file = new File([blob], 'cropped_image.png', { type: blob.type });
+        setFieldValue('image', croppedImage);
+        setShowModal(false);
+    };
 
     console.log("errors ", errors);
     return (
@@ -80,6 +88,13 @@ const RegisterPage = () => {
                            value={values.image}
                            error={errors.image}
                            onChange={onChangeFileHandler}/>
+
+                <ImageCropperModal
+                    show={showModal}
+                    handleClose={() => setShowModal(false)}
+                    handleCrop={handleCrop}
+                    image={imageForCropping}
+                />
 
                 <button type="submit" className="btn btn-primary">Реєструватися</button>
 

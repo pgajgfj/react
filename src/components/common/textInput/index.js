@@ -1,13 +1,13 @@
 import classNames from "classnames";
 
-const TextInput = ({ label, field, type, value, error, onChange }) => {
+const TextInput = ({ label, field, type, value, error, touched, onChange }) => {
     return (
       <>
           <div className="mb-3">
               <label htmlFor={field} className="form-label">{label}</label>
               <input type={type}
                      className={classNames("form-control", {
-                         "is-invalid": error
+                         "is-invalid": error && touched
                      })}
                      id={field}
                      name={field}
@@ -15,7 +15,7 @@ const TextInput = ({ label, field, type, value, error, onChange }) => {
                      onChange={onChange}
                      aria-describedby="emailHelp"/>
               {
-                  error &&
+                  (error && touched) &&
                   <div className="invalid-feedback">
                       {error}
                   </div>
